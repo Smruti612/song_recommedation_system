@@ -1,38 +1,229 @@
-.App {
-  text-align: center;
-}
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+/* General styles */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+body {
+  font-family: 'Arial', sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f9fafb;
   display: flex;
-  flex-direction: column;
-  align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
+  align-items: center;
+  min-height: 100vh;
+}
+
+/* Main container */
+.min-h-screen {
+  background-color: #f9fafb;
+}
+
+/* Centering the content with max width */
+.max-w-2xl {
+  max-width: 32rem;
+  width: 100%;
+  margin: auto;
+  padding: 2rem;
+}
+
+/* Container for the card */
+.bg-white {
+  background-color: white;
+  border-radius: 12px;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+  padding: 2rem;
+  transition: box-shadow 0.3s ease;
+}
+
+.bg-white:hover {
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+/* Header */
+h1 {
+  font-size: 2rem;
+  font-weight: 700;
+  color: #333;
+  margin-bottom: 1.5rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+h3 {
+  font-size: 1.125rem;
+  font-weight: 600;
+  color: #333;
+  margin-top: 1rem;
+}
+
+/* Input field */
+input {
+  width: 100%;
+  padding: 0.75rem 1rem;
+  border: 1px solid #e5e7eb;
+  border-radius: 8px;
+  font-size: 1rem;
+  color: #333;
+  transition: border-color 0.3s ease;
+  margin-bottom: 1rem;
+}
+
+input:focus {
+  outline: none;
+  border-color: #3b82f6;
+}
+
+input::placeholder {
+  color: #9ca3af;
+}
+
+/* Search Icon */
+.search-icon {
+  position: absolute;
+  left: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #9ca3af;
+  font-size: 1.25rem;
+}
+
+/* Button */
+button {
+  background-color: #3b82f6;
   color: white;
+  width: 100%;
+  padding: 0.75rem;
+  border: none;
+  border-radius: 8px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.75rem;
+  margin-bottom: 1rem;
 }
 
-.App-link {
-  color: #61dafb;
+button:hover {
+  background-color: #2563eb;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+button:disabled {
+  background-color: #e5e7eb;
+  cursor: not-allowed;
+}
+
+button .animate-spin {
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* Error Message */
+.bg-red-50 {
+  background-color: #fee2e2;
+  border: 1px solid #fca5a5;
+  padding: 0.75rem;
+  border-radius: 8px;
+  margin-top: 1.5rem;
+}
+
+.text-red-700 {
+  color: #b91c1c;
+}
+
+/* Recommendations Section */
+.mt-6 {
+  margin-top: 2rem;
+}
+
+.space-y-2 {
+  margin-top: 0.75rem;
+}
+
+.recommendation-item {
+  display: flex;
+  align-items: center;
+  padding: 1rem;
+  border-radius: 8px;
+  background-color: #f3f4f6;
+  gap: 15px;
+  transition: background-color 0.3s ease;
+}
+
+.recommendation-item:hover {
+  background-color: #e5e7eb;
+}
+
+.recommendation-item h4 {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: #333;
+}
+
+.recommendation-item p {
+  font-size: 1rem;
+  color: #6b7280;
+}
+
+.recommendation-item .text-sm {
+  color: #6b7280;
+}
+
+.recommendation-item .spotify,
+.recommendation-item .youtube {
+  display: inline-block;
+  font-size: 0.875rem;
+  color: #4b5563;
+}
+
+.recommendation-item .spotify {
+  color: #16a34a;
+}
+
+.recommendation-item .youtube {
+  color: #f97316;
+}
+
+/* Poster Image */
+.recommendation-item img {
+  width: 80px;
+  height: 80px;
+  border-radius: 8px;
+  object-fit: cover;
+}
+
+/* Mobile responsiveness */
+@media (max-width: 768px) {
+  .max-w-2xl {
+    padding: 1rem;
   }
-  to {
-    transform: rotate(360deg);
+
+  h1 {
+    font-size: 1.5rem;
+  }
+
+  h3 {
+    font-size: 1rem;
+  }
+
+  .recommendation-item {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+  }
+
+  .recommendation-item img {
+    width: 100px;
+    height: 100px;
+  }
+
+  button {
+    padding: 1rem;
   }
 }

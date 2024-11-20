@@ -1,13 +1,179 @@
+/* General Styles */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
+  font-family: 'Segoe UI', 'Roboto', 'Arial', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background-color: #f9fafb; /* Light background for the entire body */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh; /* Vertically centers content */
+  padding: 1rem;
 }
 
+/* Code Styling */
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+  font-family: 'Source Code Pro', Menlo, Monaco, Consolas, 'Courier New', monospace;
+}
+
+/* Main Container */
+.app-container {
+  width: 100%;
+  max-width: 32rem;
+  padding: 2rem;
+  background-color: white;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: box-shadow 0.3s ease;
+}
+
+.app-container:hover {
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15); /* Subtle hover effect */
+}
+
+/* Header Styling */
+h1 {
+  font-size: 1.75rem;
+  font-weight: 600;
+  color: #333;
+  margin-bottom: 1.25rem;
+}
+
+h3 {
+  font-size: 1.125rem;
+  font-weight: 600;
+  color: #333;
+  margin-bottom: 1rem;
+}
+
+/* Input Field Styling */
+input {
+  width: 100%;
+  padding: 0.75rem 1rem;
+  border: 1px solid #e5e7eb;
+  border-radius: 8px;
+  font-size: 1rem;
+  color: #333;
+  margin-bottom: 1.5rem;
+  transition: border-color 0.3s ease;
+}
+
+input:focus {
+  outline: none;
+  border-color: #3b82f6;
+}
+
+input::placeholder {
+  color: #9ca3af;
+}
+
+/* Button Styling */
+button {
+  background-color: #3b82f6;
+  color: white;
+  width: 100%;
+  padding: 0.75rem;
+  border: none;
+  border-radius: 8px;
+  font-size: 1rem;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  transition: background-color 0.3s ease;
+}
+
+button:hover {
+  background-color: #2563eb;
+}
+
+button:disabled {
+  background-color: #e5e7eb;
+  cursor: not-allowed;
+}
+
+/* Error Message Styling */
+.bg-red-50 {
+  background-color: #fee2e2;
+  border: 1px solid #fca5a5;
+  padding: 0.75rem;
+  border-radius: 8px;
+  margin-top: 1rem;
+}
+
+.text-red-700 {
+  color: #b91c1c;
+}
+
+/* Recommendations Section */
+.recommendation-list {
+  margin-top: 1.5rem;
+}
+
+.recommendation-item {
+  display: flex;
+  align-items: center;
+  padding: 1rem;
+  border-radius: 8px;
+  background-color: #f3f4f6;
+  gap: 10px;
+  transition: background-color 0.3s ease;
+}
+
+.recommendation-item:hover {
+  background-color: #e5e7eb;
+}
+
+.recommendation-item h4 {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #333;
+}
+
+.recommendation-item p {
+  font-size: 0.875rem;
+  color: #6b7280;
+}
+
+.recommendation-item .spotify,
+.recommendation-item .youtube {
+  display: inline-block;
+  font-size: 0.875rem;
+  color: #4b5563;
+}
+
+.recommendation-item .spotify {
+  color: #16a34a;
+}
+
+.recommendation-item .youtube {
+  color: #f97316;
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+  .app-container {
+    padding: 1rem;
+  }
+
+  h1 {
+    font-size: 1.5rem;
+  }
+
+  h3 {
+    font-size: 1rem;
+  }
+
+  input {
+    padding: 0.75rem;
+  }
+
+  button {
+    padding: 0.75rem;
+  }
 }
